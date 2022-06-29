@@ -1,0 +1,13 @@
+
+class Config:
+    SLACK_TOKEN = ''
+    SLACK_CHANNEL = ''
+    SLACK_SIGNING_SECRET = ''
+
+    GOOGLE_SHEETS_URL = ''
+
+    IMGUR_CLIENT_ID = ''
+    IMGUR_ACCESS_TOKEN = ''
+
+    MACHINE = 'LINUX'
+    VERSION_MAIN = 101

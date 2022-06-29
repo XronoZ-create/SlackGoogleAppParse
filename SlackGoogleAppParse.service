@@ -1,0 +1,11 @@
+[Unit]
+Description=SlackGoogleAppParse
+After=network.target
+
+[Service]
+WorkingDirectory=/root/SlackGoogleAppParse/
+ExecStart=/usr/local/bin/gunicorn --bind 0.0.0.0:5000 --chdir /root/SlackGoogleAppParse run_server:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
