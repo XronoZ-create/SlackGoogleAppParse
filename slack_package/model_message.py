@@ -51,7 +51,7 @@ class Message:
     @property
     def block(self):
         if not self.text:
-            self.text = f"🎮 <https://play.google.com/store/apps/details?id=net.DuckyGames.PetIdle| {self.name}> \n " \
+            self.text = f"🎮 <{self.href}| {self.name}> \n " \
                         f"👤 *Разработчик*: {self.developer} "
             if self.video:
                 self.text += f"<{self.video}| >"
@@ -69,7 +69,7 @@ class Message:
         if self.screenshots and not self.video and not self.screenshots_href:
             #  если есть скриншоты и нет видео. Действие не от кнопки(screenshots_href - нет ссылки на общий скриншот)
             self.num_screen = 0
-            for self.one_screen in self.screenshots:
+            for self.one_screen in self.screenshots[:3]:
                 self.r = requests.get(self.one_screen, allow_redirects=True)
                 with open(f'test_{self.num_screen}.jpg', 'wb') as self.jpg_file:
                     self.jpg_file.write(self.r.content)
