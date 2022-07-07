@@ -29,11 +29,11 @@ if __name__ == "__main__":
         href='https://play.google.com/store/apps/details?id=net.DuckyGames.PetIdle',
         developer='DuckyGames',
         screenshots=[
-            'https://play-lh.googleusercontent.com/sTwKtOL8fA6sc5f8uELoNHm7s6ivsGGNaTAYwMHi0CA7o9XjkrToRQS01T9aVQ7UowRy=w2560-h1440-rw',
-            'https://play-lh.googleusercontent.com/sqvk_U7wcyDM520AmQxalmmYt55MUKTFczsTLIv-nNOCSIHEBoGb40Ppm6mEnYSHCOY=w2560-h1440-rw',
-            'https://play-lh.googleusercontent.com/Pvdt4tgv6inIpQ-qAMvcCfImmPk3W6N2sULmOyN-DEjGJcZLR4_8d3qQsCvU4FoBSS0=w2560-h1440-rw'
+            'https://play-lh.googleusercontent.com/HxyKC546tPZniXkNQ0QBMQxMDQmPL8wAWdbOxPVSGZpX9twYqfUY9hnQicCIFlptMfA=w526-h296-rw',
+            'https://play-lh.googleusercontent.com/4EVKyN7M_P7mZeM_JgkcJbSZbaYh5IXpNnUD3rNN-ur0PV9QAYoC5F1lmQ44aD1GJIY=w526-h296-rw',
+            'https://play-lh.googleusercontent.com/pZcYhqnGTEDwcz7MzPUXNDTmBm40s5l3KGZ5Tp2N6wN4ec2VReWoR7R9s0MXKc8spHE=w526-h296-rw'
         ],
-        video='https://youtu.be/KVcOjMD_9b8',
+        video=None,
         already_send=False
     ).block
     send_slack_message(block=block)
