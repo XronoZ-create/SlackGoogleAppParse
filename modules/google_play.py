@@ -7,17 +7,20 @@ from contextlib import suppress
 
 class DeveloperFindApp:
     def __init__(self):
-        self.success_load_batch = False
-        self.chrome_options = uc.ChromeOptions()
-        self.chrome_options.add_argument('--headless')
-        self.driver = uc.Chrome(version_main=Config.VERSION_MAIN, options=self.chrome_options)
-        self.driver.response_interceptor = self.interceptor
+        pass
 
     def interceptor(self, request, response):
         if "batchexecute" in request.url:
             if request.response.status_code == 200:
                 print('success load batch')
                 self.success_load_batch = True
+
+    def init_driver(self):
+        self.success_load_batch = False
+        self.chrome_options = uc.ChromeOptions()
+        self.chrome_options.add_argument('--headless')
+        self.driver = uc.Chrome(version_main=Config.VERSION_MAIN, options=self.chrome_options)
+        self.driver.response_interceptor = self.interceptor
 
     def wait_batch(self):
         self.date_start = datetime.datetime.now()
@@ -32,7 +35,14 @@ class DeveloperFindApp:
 
     def find_app(self, dev_href):  # dev_type: [dev, developer]
         """ Поиск приложений разработчика """
-        self.driver.get(dev_href)
+
+        try:
+            self.driver.get(dev_href)
+        except:  # Если крашнут драйвер или не создан
+            self._end()
+            self.init_driver()
+            self.driver.get(dev_href)
+
         for _ in range(1, 30):
             self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             with suppress(Exception):

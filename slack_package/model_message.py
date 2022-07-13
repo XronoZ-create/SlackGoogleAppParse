@@ -46,20 +46,22 @@ def get_concat(im_list):
     return dst
 
 class Message:
-    def __init__(self, name: str, href: str, developer: str, screenshots: list, video: str, already_send: bool, text=None, screenshots_href=None):
+    def __init__(self, name: str, href: str, developer: str, screenshots: list, video: str, already_send: bool, platform: str, text=None, screenshots_href=None):
         self.name = name
         self.href = href
         self.developer = developer
         self.screenshots = screenshots
         self.video = video
         self.already_send = already_send
+        self.platform = platform
         self.text = text
         self.screenshots_href = screenshots_href
 
     @property
     def block(self):
         if not self.text:
-            self.text = f"🎮 <{self.href}| {self.name}> \n " \
+            self.text = f"*{self.platform}* \n " \
+                        f"🎮 <{self.href}| {self.name}> \n " \
                         f"👤 *Разработчик*: {self.developer} "
             if self.video:
                 self.text += f"<{self.video}| >"
