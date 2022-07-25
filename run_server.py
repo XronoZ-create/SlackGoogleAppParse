@@ -50,7 +50,8 @@ def slack_app():
             video='',
             already_send=True,
             text=text,
-            screenshots_href=screenshots_href
+            screenshots_href=screenshots_href,
+            platform=''
         ).block
         update_message(ts=ts, block=block)
 
